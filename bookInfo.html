@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Book Info</title>
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="topnav" id="myTopnav">
+          <a href="index.html" class="active">Home</a>
+          <a href="addBook.html">Add Book</a>
+          <a href="#favorites">Favorites</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+	<img src="logo.png">
+	<h4 id="logoText">Enlighten Your Mind :)</h4><br>
+
+
+	<div class="row text-center">
+		<div class="col-md-4" id="left">Left</div>
+		<div class="col-md-4" id="right"><br><h4 class="titles">Book Description:</h4>
+			<p id="pDesc" class="info"></p>
+			<h4 class="titles">Genre:</h4>
+			<p id="pGenre" class="info"></p>
+			<h4 class="titles">Release Year:</h4>
+			<p id="pRelease" class="info"></p>
+			<h4 class="titles">Recommendations:</h4>
+			<div id="recomDiv" class="info">
+                <p id="recomPar" class="info"></p>         
+            </div>
+		</div>
+
+        <div class="col-md-4" id="recom">
+            <form>
+                <h4 class="titles">Would like to add a new recommendation? :)</h4>
+                <input type="text" id="txtRecom" style="height: 300px; width: 400px; float: left;"><br><br>
+                <button id="btnRecom" onclick="addRecommendation()">Add Recommendation</button>
+            </form>
+
+        </div>
+
+	</div>
+
+    </div>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript">
+
+    	var $imgBook = $("<img height='600px' width='400px'>");
+    	var imgSrc = localStorage.getItem("imgSrc");
+    	$imgBook.attr("src", imgSrc);
+    	$('#left').html($imgBook);
+    	var bookIndex;
+    	for (var i = 0; i < allBooks.length; i++) 
+    	{
+    		if(imgSrc === allBooks[i].coverPage)
+    		{
+    			bookIndex = i;
+    			break;
+    		}
+    	}
+    	var desc = allBooks[bookIndex].description;
+    	$("#pDesc").html("<b>"+desc+"</b>");
+    	var genre = allBooks[bookIndex].genre;
+    	$("#pGenre").html("<b>"+genre+"</b>");
+    	var releaseYear = allBooks[bookIndex].releaseYear;
+    	$("#pRelease").html("<b>"+releaseYear+"</b>"); 
+
+    	for(var i=0; i<allBooks[bookIndex].recommendations.length; i++)
+        {
+            var $recomPar = $("<p></p>");
+            $recomPar.attr("class", "info");
+            $recomPar.html("<b>"+allBooks[bookIndex].recommendations[i]+"</b>");
+            $("#recomPar").append($recomPar);
+            //$recomPar.appendTo("#right");
+        }
+
+
+    </script>
+</body>
+</html>

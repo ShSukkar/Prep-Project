@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>Reactor Prep Lesson</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+
+  </style>
+</head>
+
+<body id="addBookBody">
+  <div class="topnav" id="myTopnav">
+  <a href="index.html" class="active">Home</a>
+  <a href="addBook.html">Add Book</a>
+  <a href="#favorites">Favorites</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+  <img src="logo.png">
+  <h4 id="logoText">Enlighten Your Mind :)</h4>
+
+  <center>
+  <form>
+    Title:       <input type="text" id="txtTitle"><br>
+    Author:      <input type="text" id="txtAuthor"><br>
+    Description: <input type="text" id="txtDescription"><br>
+    Genre:       <input type="text" id="txtGenre"><br>
+    Release Year:<input type="number" id="txtReleaseYear"><br>
+
+    Cover Page:   <input type="text" id="txtCoverPage"><br>
+    <button id="btn" type="button" onclick="addBook()">Add Book</button>
+  </form>
+  </center>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

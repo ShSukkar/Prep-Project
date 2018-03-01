@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>Reactor Prep Lesson</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+  	
+
+  </style>
+</head>
+
+<body id="indexBody">
+<div class="container-fluid">
+<div class="topnav" id="myTopnav">
+  <a href="index.html" class="active">Home</a>
+  <a href="addBook.html">Add Book</a>
+  <a href="#favorites">Favorites</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+
+	<img src="logo.png">
+	<h4 id="logoText">Enlighten Your Mind :)</h4>
+
+<center>
+<div class="w3-content w3-display-container" style="max-width:800px">
+  <a href="bookInfo.html"  id="The 7 Habits of Highly Effective People" class="someClass"><img class="mySlides" src="The7HabitsofHighlyEffectivePeople.jpg" style="width:50%"></a>
+
+  <a href="bookInfo.html" id="The Autobiography of Benjamin Franklin" class="someClass"><img class="mySlides" src="BenjaminFranklin.jpeg" style="width:50%"></a>
+  
+  <a href="bookInfo.html" id="A Hebrew Female in My Heart" class="someClass"><img class="mySlides" src="AHebrewFemaleinMyHeart.jpeg" style="width:50%"></a>
+  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:50%">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)" id="lastSpan"></span>
+
+  </div>
+</div>
+  <br><br>  
+  <div id="newImgDiv">
+    <a href="="bookInfo.html"></a>
+  </div>
+	
+</div>
+</center>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    
+<script>
+      var newImgSrc = localStorage.getItem("newImgSrc");
+      var $imgBook = $("<img height='500px' width='300px'>");
+      $imgBook.attr("class", "someClass");
+        // $imgBook.attr("src", "");
+        // $imgBook.css("display", "none");
+      $imgBook.attr("src", newImgSrc);
+      //$("#newImgDiv").html("<a href='bookInfo.html'>"+$imgBook+"</a>")
+      $imgBook.appendTo("#newImgDiv");
+
+
+
+  var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+     dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+
+</body>
+</html>
